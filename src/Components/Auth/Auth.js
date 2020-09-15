@@ -12,6 +12,11 @@ export default class Auth extends Component{
             password: '',
         }
     }
+    handleInput = (e) => {
+      this.setState({
+        [e.target.name]: e.target.value,
+      })
+    }
 
     render(){
         return(
@@ -39,6 +44,22 @@ export default class Auth extends Component{
                 }}
               />
             </div>
+            <button
+              onClick={() => {
+                this.handleLogin()
+              }}
+              className="login-button"
+            >
+              Log in
+            </button>
+            <button
+              onClick={() => {
+                this.handleRegister()
+              }}
+              className="register-button"
+            >
+              Register
+            </button>
 
             </div>
         )
