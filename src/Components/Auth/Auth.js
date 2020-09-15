@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
-// import { loginUser } from '../ducks/authReducer'
-// import { connect } from 'react-redux'
-// import axios from 'axios'
+import { loginUser } from '../../ducks/reducer'
+import { connect } from 'react-redux'
+import axios from 'axios'
 
-export default class Auth extends Component{
+class Auth extends Component{
     constructor(props) {
         super(props)
         this.state = {
@@ -12,9 +12,21 @@ export default class Auth extends Component{
             password: '',
         }
     }
-    handleInput = (e) => {
+    handleChange = (e) => {
       this.setState({
         [e.target.name]: e.target.value,
+      })
+    }
+    handleLogin = (e) => {
+      const { username, password } = this.state
+      axios
+      .post('/api/auth/login', { username, password })
+      .then((res) => {
+        this.props.loginUser(res.data)
+        this.props.history.push('/dashboard')
+      })
+      .catch((err) => {
+        alert(err.message)
       })
     }
 
@@ -29,7 +41,7 @@ export default class Auth extends Component{
                 maxLength="100"
                 name="username"
                 onChange={(e) => {
-                  this.handleInput(e)
+                  this.handleChange(e)
                 }}
               />
               <p>
@@ -40,7 +52,7 @@ export default class Auth extends Component{
                 maxLength="20"
                 name="password"
                 onChange={(e) => {
-                  this.handleInput(e)
+                  this.handleChange(e)
                 }}
               />
             </div>
@@ -48,7 +60,7 @@ export default class Auth extends Component{
               onClick={() => {
                 this.handleLogin()
               }}
-              className="login-button"
+              className="input-button"
             >
               Log in
             </button>
@@ -56,7 +68,7 @@ export default class Auth extends Component{
               onClick={() => {
                 this.handleRegister()
               }}
-              className="register-button"
+              className="input-button"
             >
               Register
             </button>
@@ -66,72 +78,4 @@ export default class Auth extends Component{
     }
 }
 
-
-//TODO Write all methods, connect to store, connect methods to JSX
-
-
-
-//   handleInput = (e) => {
-//     this.setState({
-//       [e.target.name]: e.target.value,
-//     })
-//   }
-
-//   handleLogin = () => {
-//     const { email, password } = this.state
-//     axios
-//       .post('/auth/login', { email, password })
-//       .then((res) => {
-//         this.props.loginUser(res.data)
-//         this.props.history.push('/dashboard')
-//       })
-//       .catch((err) => {
-//         alert(err.message)
-//       })
-//   }
-
-//   render() {
-//     return (
-//       <div className="app-body">
-//         <div className="input-container">
-//           <div className="flex-horizontal inputs">
-//             <div className="flex-vertical">
-//               <input
-//                 maxLength="100"
-//                 placeholder="Enter Email"
-//                 name="email"
-//                 onChange={(e) => {
-//                   this.handleInput(e)
-//                 }}
-//               />
-//               <input
-//                 type="password"
-//                 maxLength="20"
-//                 placeholder="Enter Password"
-//                 name="password"
-//                 onChange={(e) => {
-//                   this.handleInput(e)
-//                 }}
-//               />
-//             </div>
-//             <button
-//               onClick={() => {
-//                 this.handleLogin()
-//               }}
-//               className="input-container-button"
-//             >
-//               Log in
-//             </button>
-//           </div>
-//           <div className="flex-horizontal link">
-//             <span>Don't have an account? Register here: </span>
-//             <Link className="input-container-button" to="/register">
-//               Register
-//             </Link>
-//           </div>
-//         </div>
-//       </div>
-//     )
-//   }
-
-
+export default connect(null, {loginUser})(Auth)

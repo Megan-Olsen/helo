@@ -1,17 +1,17 @@
 import axios from 'axios'
 
-// Initial state, what our redux store will hold
+
 const initialState = {
   user: {},
   isLoggedIn: false,
 }
 
-// Action constants, the names of the actions we can take
+
 const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
 const GET_USER = 'GET_USER'
 
-// Action creators - functions that will perform the actions
+
 export function loginUser(user) {
   return {
     type: LOGIN_USER,
@@ -35,7 +35,7 @@ export function getUser() {
   }
 }
 
-//Reducer function - responsible for actually changing state
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
