@@ -27,7 +27,7 @@ export function logoutUser() {
 }
 
 export function getUser() {
-  const payload = axios.get('/auth/user')
+  const payload = axios.get('/api/auth/user')
 
   return {
     type: GET_USER,

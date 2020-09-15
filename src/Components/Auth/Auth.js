@@ -29,6 +29,19 @@ class Auth extends Component{
         alert(err.message)
       })
     }
+    handleRegister = () => {
+      const { username, password } = this.state
+      axios
+        .post('/api/auth/register', {username, password})
+        .then((res) => {
+          this.props.loginUser(res.data)
+          this.props.history.push('/dashboard')
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+    }
+
 
     render(){
         return(
