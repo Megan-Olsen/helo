@@ -19,9 +19,3 @@ create table posts (
 ALTER TABLE users 
 ALTER COLUMN password TYPE text;
 
-
-
-INSERT INTO users (username, password, profile_pic)
-VALUES ('Megan', 'taco', 'yupyup');
-INSERT INTO posts (title, img, content, author_id)
-VALUES ('what?', 'dundundun.jpg', 'this is what', 1);
