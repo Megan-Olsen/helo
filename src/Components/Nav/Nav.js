@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import {getUser} from '../../ducks/reducer'
+// import {getUser} from '../../ducks/reducer'
 import { connect } from 'react-redux'
 
 class Nav extends Component{
 
-    componentDidMount(){
-        this.props.getUser()
-    }
+    // componentDidMount(){
+    //     this.props.getUser()
+    // }
 
     render(){
-        const { username, profilepicture} = this.props.user
+        console.log(this.props)
+        const { username, profilepicture } = this.props.username
         return(
             <div>
                 <div>{profilepicture}</div>
@@ -29,12 +30,7 @@ class Nav extends Component{
     }
 }
 function mapStateToProps(state) {
-    console.log(state)
-    return {
-        user: state.user
-     }
+    return state
 }
 
-
-
-export default connect(mapStateToProps, {getUser})(Nav)
+export default connect(mapStateToProps)(Nav)

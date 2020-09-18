@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+// import axios from 'axios'
 
 const initialState = {
     username: null,
@@ -7,16 +6,18 @@ const initialState = {
     profilepicture: null
 }
 
-
 const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
-const GET_USER = 'GET_USER'
+// const GET_USER = 'GET_USER'
 
-
-export function loginUser(user) {
+export function loginUser(username, id, profilepicture) {
   return {
     type: LOGIN_USER,
-    payload: user,
+    payload: {
+      username: username,
+      id: id, 
+      profilepicture: profilepicture
+    },
   }
 }
 
@@ -27,28 +28,20 @@ export function logoutUser() {
   }
 }
 
-export function getUser() {
-  let payload = axios.get('/api/auth/user').then(res => res.data)
-  return {
-    type: GET_USER,
-    payload: payload,
-  }
-}
+// export function getUser() {
+//   let payload = axios.get('/api/auth/user').then(res => res.data)
+//   return {
+//     type: GET_USER,
+//     payload: payload,
+//   }
+// }
 
-
-export default function reducer(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    // case LOGIN_USER:
-    //   return { ...state, user: action.payload, isLoggedIn: true }
-    // case LOGOUT_USER:
-    //   return initialState
-    // case GET_USER + '_PENDING':
-    //   return { ...state }
-    case GET_USER + '_FULFILLED':
-      const {username, id, profilepicture} = action.payload.user
-      return { username, id, profilepicture};
-    // case GET_USER + '_REJECTED':
-    //   return initialState
+    case LOGIN_USER:
+      return { ...state, username: action.payload.username, id: action.payload.id, profilepicture: action.payload.profilepicture}
+    case LOGOUT_USER:
+      return initialState
     default:
       return state
   }
