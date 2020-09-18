@@ -2,12 +2,9 @@ import axios from 'axios'
 
 
 const initialState = {
-  user : {
-    username: '',
-    id: '',
-    profilepicture: ''
-  },
-  isLoggedIn: false,
+    username: null,
+    id: null,
+    profilepicture: null
 }
 
 
@@ -31,8 +28,7 @@ export function logoutUser() {
 }
 
 export function getUser() {
-  const payload = axios.get('/api/auth/user')
-
+  let payload = axios.get('/api/auth/user').then(res => res.data)
   return {
     type: GET_USER,
     payload: payload,
@@ -40,7 +36,7 @@ export function getUser() {
 }
 
 
-export default function (state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     // case LOGIN_USER:
     //   return { ...state, user: action.payload, isLoggedIn: true }
@@ -48,8 +44,9 @@ export default function (state = initialState, action) {
     //   return initialState
     // case GET_USER + '_PENDING':
     //   return { ...state }
-    // case GET_USER + '_FULFILLED':
-    //   return { ...state, user: action.payload.data, isLoggedIn: true }
+    case GET_USER + '_FULFILLED':
+      const {username, id, profilepicture} = action.payload.user
+      return { username, id, profilepicture};
     // case GET_USER + '_REJECTED':
     //   return initialState
     default:
