@@ -46,8 +46,11 @@ class Auth extends Component{
     render(){
         return(
             <div>
+              <div className="authcontainer">
                 <div className="logininput">
-              <p>
+                  <img className="logo" src="https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/helo_logo.png" alt="logo"/>
+                  <h1 className="helo">Helo</h1>
+              <p className="loggywords">
                   Username:
               </p>
                <input
@@ -57,7 +60,7 @@ class Auth extends Component{
                   this.handleChange(e)
                 }}
               />
-              <p>
+              <p className="loggywords">
                   Password:
               </p>
                <input
@@ -85,7 +88,7 @@ class Auth extends Component{
             >
               Register
             </button>
-
+            </div>
             </div>
         )
     }
