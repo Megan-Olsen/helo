@@ -45,24 +45,23 @@ class Auth extends Component{
 
     render(){
         return(
-            <div>
+            <div className="auth">
               <div className="authcontainer">
                 <div className="logininput">
                   <img className="logo" src="https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/helo_logo.png" alt="logo"/>
                   <h1 className="helo">Helo</h1>
               <p className="loggywords">
                   Username:
-              </p>
                <input
                 maxLength="100"
                 name="username"
                 onChange={(e) => {
                   this.handleChange(e)
                 }}
-              />
+                />
+                </p>
               <p className="loggywords">
                   Password:
-              </p>
                <input
                 type="password"
                 maxLength="20"
@@ -70,7 +69,8 @@ class Auth extends Component{
                 onChange={(e) => {
                   this.handleChange(e)
                 }}
-              />
+                />
+                </p>
             </div>
             <button
               onClick={() => {

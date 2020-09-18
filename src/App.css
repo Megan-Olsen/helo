@@ -1,3 +1,33 @@
 .App {
   text-align: center;
 }
+.auth { 
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right, #FF70A6, #FF9770, #FFD670, #E9FF70);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.authcontainer {
+  align-self: center;
+  height: 300px;
+  width: 500px;
+  padding: 40px;
+  box-shadow: 2px 2px 4px 2px black;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+}
+.helo{
+  font-size: 80px;
+  margin: 4px;
+}
+.loggywords {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.loggywords input {
+  margin-left: 20px;
+}
