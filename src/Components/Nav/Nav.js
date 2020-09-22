@@ -5,9 +5,6 @@ import { connect } from 'react-redux'
 
 class Nav extends Component{
 
-    // componentDidMount(){
-    //     this.props.getUser()
-    // }
 
     render(){
         console.log(this.props)
@@ -29,8 +26,7 @@ class Nav extends Component{
         )
     }
 }
-function mapStateToProps(state) {
-    return state
-}
+
+const mapStateToProps = (state) => state
 
 export default connect(mapStateToProps)(Nav)

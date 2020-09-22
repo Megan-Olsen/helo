@@ -28,7 +28,7 @@ export function logoutUser() {
   }
 }
 
-// export function getUser() {
+// export function getUser(username, id, profilepicture) {
 //   let payload = axios.get('/api/auth/user').then(res => res.data)
 //   return {
 //     type: GET_USER,
@@ -42,6 +42,12 @@ export default function (state = initialState, action) {
       return { ...state, username: action.payload.username, id: action.payload.id, profilepicture: action.payload.profilepicture}
     case LOGOUT_USER:
       return initialState
+    // case GET_USER + '_PENDING':
+    //   return { ...state }
+    // case GET_USER + '_FULFILLED':
+    //   return { ...state, user: action.payload.data, isLoggedIn: true }
+    // case GET_USER + '_REJECTED':
+    //   return initialState
     default:
       return state
   }
