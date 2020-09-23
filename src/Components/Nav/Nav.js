@@ -10,7 +10,7 @@ class Nav extends Component{
         console.log(this.props)
         const { username, profile_pic } = this.props.username
         return(
-            <div classname="nav">
+            <div className="topnav">
                 <img className="image" src={profile_pic} alt= 'my cat'/>
                 <div>{username}</div>
                 <Link to="/dashboard">
