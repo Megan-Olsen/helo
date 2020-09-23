@@ -1,7 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
-
+*{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  display: flex;
 }
 .auth { 
   width: 100vw;
@@ -13,7 +16,7 @@
 }
 .authcontainer {
   align-self: center;
-  height: 300px;
+  height: 400px;
   width: 500px;
   padding: 40px;
   box-shadow: 2px 2px 4px 2px black;
@@ -33,3 +36,20 @@
 .loggywords input {
   margin-left: 20px;
 }
+.input-button {
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 15px;
+  height: 30px;
+  color: white;
+  background-color: darkslategray;
+}
+
+.nav {
+  height: 100vh;
+  width: 10%;
+  /* background-image: linear-gradient(to right, #FFD670, #FF9770, #FF70A6);
+   */
+   background-color: orange;
+}
+

@@ -10,11 +10,11 @@ class Nav extends Component{
         console.log(this.props)
         const { username, profile_pic } = this.props.username
         return(
-            <div>
-                <img src={profile_pic} alt= 'my cat'/>
+            <div classname="nav">
+                <img className="image" src={profile_pic} alt= 'my cat'/>
                 <div>{username}</div>
                 <Link to="/dashboard">
-                    <button>Home</button>
+                    <img className="navbutton" src ="https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/home_logo.png" alt="Home"/>
                 </Link>
                 <Link to="/new">
                     <button>New Post</button>
