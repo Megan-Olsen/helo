@@ -19,3 +19,7 @@ create table posts (
 ALTER TABLE users 
 ALTER COLUMN password TYPE text;
 
+
+UPDATE users SET profile_pic = 'https://robohash.org/Eydis?set=set4' WHERE id = 1;
+SELECT * FROM users;
+

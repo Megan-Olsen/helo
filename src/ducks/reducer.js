@@ -3,20 +3,20 @@
 const initialState = {
     username: null,
     id: null,
-    profilepicture: null
+    profile_pic: null
 }
 
 const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
 // const GET_USER = 'GET_USER'
 
-export function loginUser(username, id, profilepicture) {
+export function loginUser(username, id, profile_pic) {
   return {
     type: LOGIN_USER,
     payload: {
       username: username,
       id: id, 
-      profilepicture: profilepicture
+      profile_pic: profile_pic
     },
   }
 }
@@ -39,7 +39,7 @@ export function logoutUser() {
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, username: action.payload.username, id: action.payload.id, profilepicture: action.payload.profilepicture}
+      return { ...state, username: action.payload.username, id: action.payload.id, profile_pic: action.payload.profile_pic}
     case LOGOUT_USER:
       return initialState
     // case GET_USER + '_PENDING':

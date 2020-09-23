@@ -8,10 +8,10 @@ class Nav extends Component{
 
     render(){
         console.log(this.props)
-        const { username, profilepicture } = this.props.username
+        const { username, profile_pic } = this.props.username
         return(
             <div>
-                <div>{profilepicture}</div>
+                <img src={profile_pic} alt= 'my cat'/>
                 <div>{username}</div>
                 <Link to="/dashboard">
                     <button>Home</button>
