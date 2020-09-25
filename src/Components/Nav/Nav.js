@@ -12,16 +12,18 @@ class Nav extends Component{
         return(
             <div className="topnav">
                 <img className="image" src={profile_pic} alt= 'my cat'/>
-                <div>{username}</div>
+                <div className="username">{username}</div>
                 <Link to="/dashboard">
                     <img className="navbutton" src ="https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/home_logo.png" alt="Home"/>
                 </Link>
                 <Link to="/new">
-                    <button>New Post</button>
+                    <img className="navbutton" src = "https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/new_logo.png" alt="New Post"/>
                 </Link>
+                <div className="botnav">
                 <Link to="/">
-                    <button>Logout</button>
+                    <img className="logout" src ="https://raw.githubusercontent.com/DevMountain/simulation-3/master/assets/shut_down.png" alt="Logout"/>
                 </Link>
+                </div>
             </div>
         )
     }
