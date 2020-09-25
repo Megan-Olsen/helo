@@ -1,9 +1,24 @@
 import React, { Component } from 'react'
 
-export default class Dashboard extends Component{
+class Dashboard extends Component{
     render(){
         return(
-            <div>Dashboard</div>
+            <div>
+                <div className="inputcontainer">
+                    <div className="inputsnbuttons">
+                        <input></input>
+                        <button>Search</button>
+                        <button>Reset</button>
+                    </div>
+                    <div>checkbox</div>
+                </div>
+                
+
+
+
+
+            </div>
         )
     }
 }
+export default Dashboard
